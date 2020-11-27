@@ -46,19 +46,25 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="dashboard.html">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#codetrain">
+                <span data-feather="shopping-cart"></span>
+                Add Part Allocation
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
                 <span data-feather="users"></span>
                 Inventory
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Allocation.html">
+              <a class="nav-link" href="#">
                 <span data-feather="bar-chart-2"></span>
                 Allocation
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Pickup View.html">
+              <a class="nav-link" href="#">
                 <span data-feather="layers"></span>
                 Pickup Request
               </a>
@@ -137,29 +143,117 @@
         </nav>
 
         <div class="main-content">
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+           <!-- Modal -->
+           <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+           aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-scrollable" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Details</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                 <form>
+                   <div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Part name">
+                     </div>
+                     <div class="form-group">
+                       <select type="text" class="form-control" placeholder="Category">
+                         <option>--Select Category--</option>
+                         <option>Electricals</option>
+                         <option>Windshield</option>
+                         <option>Tyre</option>
+                         <option>Engine</option>
+                         <option>Seats</option>
+                         <option>Chassis</option>
+                       </select>
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Vehicle Model">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Info">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Supplier">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Quantity">
+                     </div>
+                     <div class="form-group">
+                       <select type="text" class="form-control" placeholder="Stage">
+                         <option>--Select Stage--</option>
+                         <option>Untested</option>
+                         <option>Overdue</option>
+                         <option>Passed</option>
+                         <option>Unused</option>
+                         <option>Defect</option>
+                         <option>Returned</option>
+                       </select>
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Status">
+                     </div>
+                   </div>
+                 </form>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary">Save changes</button>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- Modal End -->
+         <!-- Modal -->
+         <div class="modal fade" id="codetrain" tabindex="-1" role="dialog"
+           aria-labelledby="codetrain" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-scrollable" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Allocation</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                 <form>
+                   <div>
+                     <div class="form-group">
+                       <select type="text" class="form-control" placeholder="Destination Warehouse">
+                         <option>--Select Destination Warehouse--</option>
+                         <option>Accra</option>
+                         <option>Tema</option>
+                       </select>
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Part Name">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Category">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Driver's ID">
+                     </div>
+                     <div class="form-group">
+                       <input type="text" class="form-control" placeholder="Vehicle Number">
+                       
+                       </div>
                 </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
+              </form>
+             </div>
+             <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
-          </div>
-          <!-- Modal End -->
-          <table class="table table-striped">
+           </div>
+           </div>
+         </div>
+         <!-- Modal End -->
+         <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col"><input type="checkbox"></th>
@@ -179,39 +273,17 @@
             <tbody>
               <tr>
                 <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
+                <td>VW5328</td>
+                <td>Chassis</td>
+                <td>VW Passat 2021</td>
                 <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
+                <td>Danes & Co.</td>
+                <td>$280</td>
+                <td>20000</td>
+                <td>25 Nov, 2020</td>
+                <td><span>Overdue</span></td>
                 <td>Paid</td>
-                <td>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/trash-fill.svg" alt="">
-                  </a>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/pencil.svg" alt="">
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td>
-                  <a href="" class="nav-spacing">
+                <td><a href="" class="nav-spacing">
                   <img src="/images/icons/trash-fill.svg" alt="">
                 </a>
                 <a href="" class="nav-spacing">
@@ -222,6 +294,106 @@
 
               <tr>
                 <th scope="row"><input type="checkbox"></th>
+                <td>VB9821</td>
+                <td>Seats</td>
+                <td>VW Passat 2021</td>
+                <td>@</td>
+                <td>Danes & Co.</td>
+                <td>$1072</td>
+                <td>26000</td>
+                <td>1 Dec,2020</td>
+                <td><span>Passed</span></td>
+                <td>Paid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA7832</td>
+                <td>Windshield</td>
+                <td>VW Golf 2021</td>
+                <td>@</td>
+                <td>VW Dresden</td>
+                <td>$740</td>
+                <td>30000</td>
+                <td>14 Dec,2020</td>
+                <td><span>Unused</span></td>
+                <td>Unpaid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA3402</td>
+                <td>Tyre</td>
+                <td>VW Beetle 2019</td>
+                <td>@</td>
+                <td>Sellanium</td>
+                <td>$235</td>
+                <td>25000</td>
+                <td>12 Dec,2020</td>
+                <td><span>Defect</span></td>
+                <td>Unpaid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VB1774</td>
+                <td>Engine</td>
+                <td>VW Atlas 2021</td>
+                <td>@</td>
+                <td>Sellanium</td>
+                <td>$1440</td>
+                <td>16000</td>
+                <td>11 Dec,2020</td>
+                <td><span>Returned</span></td>
+                <td>Paid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VW4078</td>
+                <td>Windshield</td>
+                <td>VW Jetta 2021</td>
+                <td>@</td>
+                <td>VW Dresden</td>
+                <td>$620</td>
+                <td>20000</td>
+                <td>9 Dec,2020</td>
+                <td><span>Overdue</span></td>
+                <td>Paid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
                 <td>VW2338</td>
                 <td>Gears</td>
                 <td>VW Golf 2021</td>
@@ -232,381 +404,66 @@
                 <td>25 Nov,2020</td>
                 <td><span>Untested</span></td>
                 <td>Paid</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA3564</td>
+                <td>Engine</td>
+                <td>VW Passat 2021</td>
+                <td>@</td>
+                <td>Sellanium</td>
+                <td>$1250</td>
+                <td>18000</td>
+                <td>6 Dec,2020</td>
+                <td><span>Used</span></td>
+                <td>Unpaid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VB44871</td>
+                <td>Electricals</td>
+                <td>VW Artean 2021</td>
+                <td>@</td>
+                <td>Henrinch</td>
+                <td>$18</td>
+                <td>22000</td>
+                <td>30 Nov,2020</td>
+                <td><span>Defect</span></td>
+                <td>Paid</td>
+                <td><a href="" class="nav-spacing">
+                  <img src="/images/icons/trash-fill.svg" alt="">
+                </a>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>Totals </td>
+                <td>----</td>
+                <td>----</td>
+                <td>@</td>
+                <td>--</td>
+                <td>$160</td>
+                <td>192000</td>
+                <td>--</td>
+                <td><span>2 Overdue</span></td>
+                <td>3 Unpaid</td>
                 <td>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/trash-fill.svg" alt="">
-                  </a>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/pencil.svg" alt="">
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td>
-                  
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25 Nov,2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td></td>
-              </tr>
+                <a href="" class="nav-spacing">
+                  <img src="/images/icons/pencil.svg" alt="">
+                </a>
+              </td>
+              </tr>  
             </tbody>
           </table>
         </div>
