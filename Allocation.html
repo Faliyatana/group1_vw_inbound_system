@@ -94,7 +94,7 @@
             </div>
           </form>
           &nbsp;&nbsp;
-          <button class="btn btn-dark" data-toggle="modal" data-target="#addPartAllocation">Add Part Allocation</button>
+          <!-- <button class="btn btn-dark" data-toggle="modal" data-target="#addPartAllocation">Add Part Allocation</button> -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -209,7 +209,6 @@
           <!-- Modal End -->
           <table class="table table-striped">
             <thead>
-              <tr>
                 <th scope="col"><input type="checkbox"></th>
                 <th scope="col">Part No.</th>
                 <th scope="col">Quantity</th>
@@ -218,93 +217,9 @@
                 <th scope="col">Drivers ID</th>
                 <th scope="col">Vehicle Number</th>
                 <th scope="col">Actions</th>
-            </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>1200</td>
-                <td>Gears</td>
-                <td>Accra</td>
-                <td>001</td>
-                <td>G221</td>
-                <td><img src="images/icons/trash-fill.svg" alt=""></td>
-                <td><img src="images/icons/pencil.svg" alt=""></td>
-              </tr>
-            <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>1400</td>
-                <td>Chassis</td>
-                <td>Tema</td>
-                <td>002</td>
-                <td>G223</td>
-            </tr>
-             <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VB9821</td>
-                <td>1978</td>
-                <td>Seat</td>
-                <td>Accra</td>
-                <td>003</td>
-                <td>G224</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA7832</td>
-                <td>7890</td>
-                <td>Windshield</td>
-                <td>Tema</td>
-                <td>004</td>
-                <td>G221</td>
-               </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA3402</td>
-                <td>789</td>
-                <td>Tyre</td>
-                <td>Accra</td>
-                <td>005</td>
-                <td>G225</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VB1774</td>
-                <td>789</td>
-                <td>Engine</td>
-                <td>Tema</td>
-                <td>006</td>
-                <td>G226</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW4078</td>
-                <td>567</td>
-                <td>Windshield</td>
-                <td>Accra</td>
-                <td>007</td>
-                <td>G227</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA3564</td>
-                <td>3543</td>
-                <td>Engine</td>
-                <td>Tema</td>
-                <td>008</td>
-                <td>G228</td>
-               </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VB44871</td>
-                <td>324</td>
-                <td>Electricals</td>
-                <td>Accra</td>
-                <td>009</td>
-                <td>G229</td>
-              </tr>
-              </tr>
+            <tbody id='allocatedParts'>
+              
             </tbody>
           </table>
         </div>
@@ -314,6 +229,68 @@
   </div>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAj5Cv1PF1Rh_itaBGS07HTfXdyySoQMG8",
+      authDomain: "faze-tech.firebaseapp.com",
+      databaseURL: "https://faze-tech.firebaseio.com",
+      projectId: "faze-tech",
+      storageBucket: "faze-tech.appspot.com",
+      messagingSenderId: "93156263958",
+      appId: "1:93156263958:web:237b68023ef5c0244fcd37"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+    var db = firebase.firestore();
+
+    function getAllocatedParts() {
+            var allocatedParts = document.getElementById('allocatedParts');
+            db.collection("parts").where("location", "!=", '').get().then((querySnapshot) => {
+          allocatedParts.innerHTML = '';
+          console.log('done');
+          let num =0;
+                querySnapshot.forEach((doc) => {
+                    // console.log(`${doc.id} => ${doc.data().projectName}`);
+                    let data = doc.data();
+                    console.log(data);
+                    let newRow = `
+                    <tr>
+                        <th scope="row"><input type="checkbox"></th>
+                        <td>${data.partNumber}</td>
+                        <td>${data.quantity}</td>
+                        <td>${data.category}</td>
+                        <td>${data.location}</td>
+                        <td>001</td>
+                        <td>G221</td>
+                        <td>
+                          <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                            <img src="images/icons/trash-fill.svg" alt="">
+                          </a>
+
+                          <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                            <img src="images/icons/pencil.svg" alt="">
+                          </a>
+                        </td>
+                  </tr>
+                    `
+                    allocatedParts.innerHTML = allocatedParts.innerHTML + newRow
+                });
+            });
+        }
+        getAllocatedParts();
+  </script>
 </body>
 
 </html>
