@@ -205,103 +205,10 @@
           </thead>
           <tbody id="allparts">
 
-          <tbody>
-            <tr>
-              <th scope="row"><input type="checkbox"></th>
-              <td>VW5328</td>
-              <td>Chassis</td>
-              <td>VW Passat 2021</td>
-              <td>@</td>
-              <td>Danes & Co.</td>
-              <td>$280</td>
-              <td>20000</td>
-              <td>>25/11/2020</td>
-              <td><span>Overdue</span></td>
-              <td>Paid</td>
-              <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing" data-toggle="modal" data-target="#editPart">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              <!-- Modal -->
-              <div class="modal fade" id="editPart" tabindex="-1" role="dialog" aria-labelledby="editPartTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="ModalTitle">Edit Part Details</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <form onsubmit="editPart(event)">
-
-                      <div class="modal-body">
-                        <div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Part number" name="partNumber">
-                          </div>
-                          <div class="form-group">
-                            <select type="text" class="form-control" placeholder="Category" name="category">
-                              <option>--Select Category--</option>
-                              <option>Electricals</option>
-                              <option>Windshield</option>
-                              <option>Tyre</option>
-                              <option>Engine</option>
-                              <option>Seats</option>
-                              <option>Chassis</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Info" name="info">
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Supplier" name="supplier">
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Quantity" name="quantity">
-                          </div>
-                          <div class="form-group">
-                            <select type="text" class="form-control" placeholder="Stage" name="stage">
-                              <option>--Select Stage--</option>
-                              <option>Untested</option>
-                              <option>Overdue</option>
-                              <option>Passed</option>
-                              <option>Unused</option>
-                              <option>Defect</option>
-                              <option>Returned</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Status" name="status">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+          </tbody>
+        </table>
+      </main>
     </div>
-    <!-- Modal End -->
-    </tr>
-
-    </tbody>
-    </table>
-  </div>
-
-  </main>
-  </div>
   </div>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -437,6 +344,73 @@
                         <a onclick="editPart('${doc.id}')" class="nav-spacing">
                           <img src="/images/icons/pencil.svg" alt="">
                         </a>
+
+                        <div class="modal fade" id="addPart" tabindex="-1" role="dialog" aria-labelledby="addPartTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="ModalTitle" id="addPartTitle">Part Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form onsubmit="addPart(event)">
+
+                  <div class="modal-body">
+                    <div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Part number" name="partNumber">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Category" name="category">
+                          <option>--Select Category--</option>
+                          <option>Electricals</option>
+                          <option>Windshield</option>
+                          <option>Tyre</option>
+                          <option>Engine</option>
+                          <option>Seats</option>
+                          <option>Chassis</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Info" name="info">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Supplier" name="supplier">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Stage" name="stage">
+                          <option>--Select Stage--</option>
+                          <option>Untested</option>
+                          <option>Overdue</option>
+                          <option>Passed</option>
+                          <option>Unused</option>
+                          <option>Defect</option>
+                          <option>Returned</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Status" name="status">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
+            </div>
+          </div>
                       </td>
                   </tr>
                     `

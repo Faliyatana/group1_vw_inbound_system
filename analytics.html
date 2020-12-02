@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Volkswagen Web Application</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-top">
+        <div class="sidebar-title">
+          <p>Analytics</p>
+        </div>
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="home"></span>
+                Overview <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Analytics
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+              Classification of Parts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalScrollable">
+                <span data-feather="shopping-cart"></span>
+                Add New Part
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html">
+                <span data-feather="users"></span>
+                Inventory
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Cost of Parts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Allocation.html">
+                <span data-feather="bar-chart-2"></span>
+                Allocation
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Pickup View.html">
+                <span data-feather="layers"></span>
+                Pickup Request
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Defects
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Invoices
+              </a>
+            </li>
+          </ul>
+
+          <div class="sidebar-title" style="border-color: #5fbff9;"></div>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="file-text"></span>
+                Settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="file-text"></span>
+                Knowledge Base
+              </a>
+            </li>
+
+          </ul>
+          <div class="sidebar-title" style="border-color: #5fbff9;"></div>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <form class="form-inline">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><img src="images/icons/search.svg" alt=""></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+          </form>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+              <span class="navbar-text">
+                November 30th, 2020
+              </span>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item icon-bar">
+              </li>
+              <span class="navbar-text nav-spacing">
+                Volkswagen Limited
+              </span>
+              <li class="nav-item nav-spacing">
+                <img src="images/logo.png" width="40">
+              </li>
+            </ul>
+
+        </nav>
+
+        <div class="main-content">
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal End -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><input type="checkbox"></th>
+                <th scope="col">Part No.</th>
+                <th scope="col">Category</th>
+                <th scope="col">Destination Warehouse</th>
+                <th scope="col">Drivers ID</th>
+                <th scope="col">Vehicle Number</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VW2338</td>
+                <td>Gears</td>
+                <td>Accra</td>
+                <td>001</td>
+                <td>G221</td>
+              </tr>
+            <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VW2338</td>
+                <td>Chassis</td>
+                <td>Tema</td>
+                <td>002</td>
+                <td>G223</td>
+            </tr>
+             <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VB9821</td>
+                <td>Seat</td>
+                <td>Accra</td>
+                <td>003</td>
+                <td>G224</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA7832</td>
+                <td>Windshield</td>
+                <td>Tema</td>
+                <td>004</td>
+                <td>G221</td>
+               </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA3402</td>
+                <td>Tyre</td>
+                <td>Accra</td>
+                <td>005</td>
+                <td>G225</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VB1774</td>
+                <td>Engine</td>
+                <td>Tema</td>
+                <td>006</td>
+                <td>G226</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VW4078</td>
+                <td>Windshield</td>
+                <td>Accra</td>
+                <td>007</td>
+                <td>G227</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VA3564</td>
+                <td>Engine</td>
+                <td>Tema</td>
+                <td>008</td>
+                <td>G228</td>
+               </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>VB44871</td>
+                <td>Electricals</td>
+                <td>Accra</td>
+                <td>009</td>
+                <td>G229</td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
