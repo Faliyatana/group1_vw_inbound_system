@@ -184,8 +184,6 @@
             </div>
           </div>
         </div>
-        <!-- Modal End -->
-
         <table class="table table-striped">
           <thead>
             <tr>
@@ -270,10 +268,11 @@
   </script>
   <script>
     var db = firebase.firestore();
-    function editPart(event) {
+
+    function editPart(event,id) {
       event.preventDefault();
       console.log('hello');
-      db.collection('parts')
+      db.collection('parts').doc(id)
         .update({
           partNumber: event.target.partNumber.value,
           category: event.target.category.value,
@@ -284,11 +283,11 @@
           quantity: event.target.quantity.value,
           stage: event.target.stage.value,
           status: event.target.status.value,
-          arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
+          location: event.target.location.value,
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
 
         })
         .then(function (docRef) {
-          console.log('Document written with ID: ', docRef.id);
           window.location.href = window.location.href
         })
         .catch(function (error) {
@@ -321,6 +320,7 @@
       var allPartsTable = document.getElementById('allparts');
       db.collection("parts").onSnapshot((querySnapshot) => {
         allPartsTable.innerHTML = '';
+        let num = 0;
         querySnapshot.forEach((doc) => {
           // console.log(`${doc.id} => ${doc.data().projectName}`);
           let data = doc.data();
@@ -339,31 +339,35 @@
                         <td><span>${data.stage}</span></td>
                         <td>${data.status}</td>
                         <td><a onclick="deletePart('${doc.id}')" class="nav-spacing">
-                          <img src="/images/icons/trash-fill.svg" alt="">
+                          <img src="images/icons/trash-fill.svg" alt="">
                         </a>
-                        <a onclick="editPart('${doc.id}')" class="nav-spacing">
-                          <img src="/images/icons/pencil.svg" alt="">
+                        <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                          <img src="images/icons/pencil.svg" alt="">
+                        </a>
+                        <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                          <img src="images/icons/house-door-fill.svg" alt="">
                         </a>
 
-                        <div class="modal fade" id="addPart" tabindex="-1" role="dialog" aria-labelledby="addPartTitle"
+                        <div class="modal fade" id="editPart${num++}" tabindex="-1" role="dialog" aria-labelledby="addPartTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="ModalTitle" id="addPartTitle">Part Details</h5>
+                  <h5 class="ModalTitle" id="addPartTitle">Edit Part</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form onsubmit="addPart(event)">
+                <form onsubmit="editPart(event, '${doc.id}')">
 
                   <div class="modal-body">
                     <div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Part number" name="partNumber">
+                        <input type="text" class="form-control" value="${data.partNumber}" placeholder="Part number" name="partNumber">
                       </div>
                       <div class="form-group">
                         <select type="text" class="form-control" placeholder="Category" name="category">
+                          <option>${data.category}</option>
                           <option>--Select Category--</option>
                           <option>Electricals</option>
                           <option>Windshield</option>
@@ -374,22 +378,23 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
+                        <input type="text" class="form-control" value="${data.vehicleModel}" placeholder="Vehicle Model" name="vehicleModel">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Info" name="info">
+                        <input type="text" class="form-control" value="${data.info}" placeholder="Info" name="info">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Supplier" name="supplier">
+                        <input type="text" class="form-control" value="${data.supplier}" placeholder="Supplier" name="supplier">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
+                        <input type="text" class="form-control" value="${data.unitCost}" placeholder="Unit Cost" name="unitCost">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+                        <input type="text" class="form-control" value="${data.quantity}" placeholder="Quantity" name="quantity">
                       </div>
                       <div class="form-group">
                         <select type="text" class="form-control" placeholder="Stage" name="stage">
+                          <option>${data.stage}</option>
                           <option>--Select Stage--</option>
                           <option>Untested</option>
                           <option>Overdue</option>
@@ -400,7 +405,10 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Status" name="status">
+                        <input type="text" class="form-control" value="${data.status}" placeholder="Status" name="status">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" value="${data.location?data.location:''}" placeholder="Location" name="location">
                       </div>
                     </div>
                   </div>
