@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Volkswagen Web Application</title>
+  <title>Allocation - Volkswagen Web Application</title>
 </head>
 
 <body>
@@ -21,30 +21,26 @@
         </div>
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
+            <h6 class="text-warning">REPORTS</h6>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="overview.html">
                 <span data-feather="home"></span>
-                Overview <span class="sr-only">(current)</span>
+                Overview
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="analytics.html">
                 <span data-feather="file"></span>
                 Analytics
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <h6 class="text-warning">LOGISTICS</h6>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#addPartAllocation">
                 <span data-feather="shopping-cart"></span>
-              Classification of Parts
+                Add Part Allocation
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalScrollable">
-                <span data-feather="shopping-cart"></span>
-                Add New Part
-              </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="dashboard.html">
                 <span data-feather="users"></span>
@@ -52,33 +48,14 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Cost of Parts
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Allocation.html">
+              <a class="nav-link active" href="#">
                 <span data-feather="bar-chart-2"></span>
                 Allocation
               </a>
             </li>
+            <h6 class="text-warning">FINANCE</h6>
             <li class="nav-item">
-              <a class="nav-link" href="Pickup View.html">
-                <span data-feather="layers"></span>
-                Pickup Request
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Defects
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="invoices.html">
                 <span data-feather="layers"></span>
                 Invoices
               </a>
@@ -116,10 +93,75 @@
                 aria-describedby="basic-addon1">
             </div>
           </form>
+          &nbsp;&nbsp;
+          <button class="btn btn-dark" data-toggle="modal" data-target="#addPartAllocation">Add Part Allocation</button>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- Modal -->
+        <div class="modal fade" id="addPartAllocation" tabindex="-1" role="dialog" aria-labelledby="addPartAllocation"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Allocation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form onsubmit="addPartallocation(event)">
+
+              <div class="modal-body">
+
+                <div>
+                  <div class="form-group">
+                    <label for="" class="text-light">Destination</label>
+                    <select type="text" class="form-control" placeholder="Destination Warehouse"
+                      name="destinationWarehouse">
+                      <option>--Select Destination Warehouse--</option>
+                      <option>Accra</option>
+                      <option>Tema</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="text-light">Part No.</label>
+                    <input type="text" class="form-control" placeholder="Part Name" name="partName">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="text-light">Quantity</label>
+                    <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="text-light">Category</label>
+                    <input type="text" class="form-control" placeholder="Category" name="category">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="text-light">Drivers ID</label>
+                    <input type="text" class="form-control" placeholder="Driver's ID" name="driversId">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="text-light">vehicle Number</label>
+                    <input type="text" class="form-control" placeholder="Vehicle Number" name="vehicleNumber">
+                  <div class="form-group">
+                      <label for="" class="text-light">Actions</label>
+                      <input type="text" class="form-control" placeholder="Actions" name="Actions">
+  
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- Modal End -->
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -170,24 +212,30 @@
               <tr>
                 <th scope="col"><input type="checkbox"></th>
                 <th scope="col">Part No.</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Category</th>
                 <th scope="col">Destination Warehouse</th>
                 <th scope="col">Drivers ID</th>
                 <th scope="col">Vehicle Number</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VW2338</td>
+                <td>1200</td>
                 <td>Gears</td>
                 <td>Accra</td>
                 <td>001</td>
                 <td>G221</td>
+                <td><img src="images/icons/trash-fill.svg" alt=""></td>
+                <td><img src="images/icons/pencil.svg" alt=""></td>
               </tr>
             <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VW2338</td>
+                <td>1400</td>
                 <td>Chassis</td>
                 <td>Tema</td>
                 <td>002</td>
@@ -196,6 +244,7 @@
              <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VB9821</td>
+                <td>1978</td>
                 <td>Seat</td>
                 <td>Accra</td>
                 <td>003</td>
@@ -204,6 +253,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VA7832</td>
+                <td>7890</td>
                 <td>Windshield</td>
                 <td>Tema</td>
                 <td>004</td>
@@ -212,6 +262,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VA3402</td>
+                <td>789</td>
                 <td>Tyre</td>
                 <td>Accra</td>
                 <td>005</td>
@@ -220,6 +271,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VB1774</td>
+                <td>789</td>
                 <td>Engine</td>
                 <td>Tema</td>
                 <td>006</td>
@@ -228,6 +280,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VW4078</td>
+                <td>567</td>
                 <td>Windshield</td>
                 <td>Accra</td>
                 <td>007</td>
@@ -236,6 +289,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VA3564</td>
+                <td>3543</td>
                 <td>Engine</td>
                 <td>Tema</td>
                 <td>008</td>
@@ -244,6 +298,7 @@
               <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td>VB44871</td>
+                <td>324</td>
                 <td>Electricals</td>
                 <td>Accra</td>
                 <td>009</td>
