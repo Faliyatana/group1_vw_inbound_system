@@ -21,46 +21,30 @@
         </div>
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
+            <h6 class="text-warning">REPORTS</h6>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="overview.html">
                 <span data-feather="home"></span>
-                Overview <span class="sr-only">(current)</span>
+                Overview
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="analytics.html">
                 <span data-feather="file"></span>
                 Analytics
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="shopping-cart"></span>
-                Classification of Parts 
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalScrollable">
-                <span data-feather="shopping-cart"></span>
-                Add New Part
-              </a>
-            </li>
-            <li class="nav-item">
+            <h6 class="text-warning">LOGISTICS</h6>
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#codetrain">
                 <span data-feather="shopping-cart"></span>
                 Add Part Allocation
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link active" href="#">
                 <span data-feather="users"></span>
                 Inventory
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="dashboard.html">
-                <span data-feather="users"></span>
-                Cost of Parts
               </a>
             </li>
             <li class="nav-item">
@@ -69,20 +53,7 @@
                 Allocation
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Pickup Request
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Defects
-              </a>
-            </li>
-
+            <h6 class="text-warning">FINANCE</h6>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="layers"></span>
@@ -122,6 +93,8 @@
                 aria-describedby="basic-addon1">
             </div>
           </form>
+          &nbsp;&nbsp;
+          <button class="btn btn-dark" data-toggle="modal" data-target="#addPart">Add new part</button>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -149,786 +122,358 @@
         </nav>
 
         <div class="main-content">
-           <!-- Modal -->
-           <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-           aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-           <div class="modal-dialog modal-dialog-scrollable" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Details</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-               <form onsubmit="addPart(event)">
-
-               <div class="modal-body">
-                   <div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Part number" name="partNumber">
-                     </div>
-                     <div class="form-group">
-                       <select type="text" class="form-control" placeholder="Category" name= "category">
-                         <option>--Select Category--</option>
-                         <option>Electricals</option>
-                         <option>Windshield</option>
-                         <option>Tyre</option>
-                         <option>Engine</option>
-                         <option>Seats</option>
-                         <option>Chassis</option>
-                       </select>
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Info" name="info">
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Supplier" name="supplier">
-                     </div>
-                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
-                    </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Quantity" name="quantity">
-                     </div>
-                     <div class="form-group">
-                       <select type="text" class="form-control" placeholder="Stage" name="stage">
-                         <option>--Select Stage--</option>
-                         <option>Untested</option>
-                         <option>Overdue</option>
-                         <option>Passed</option>
-                         <option>Unused</option>
-                         <option>Defect</option>
-                         <option>Returned</option>
-                       </select>
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Status" name="status">
-                     </div>
-                   </div>
-               </div>
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 <button type="submit" class="btn btn-primary">Save changes</button>
-                </form>
-               </div>
-             </div>
-           </div>
-         </div>
-         <!-- Modal End -->
-         <!-- Modal -->
-         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-scrollable" role="document">
-           <div class="modal-content">
-             <div class="modal-header">
-               <h5 class="ModalTitle" id="exampleModalScrollableTitle">Edit Part Details</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-             <form onsubmit="editPart(event)">
-
-             <div class="modal-body">
-                 <div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Part number" name="partNumber">
-                   </div>
-                   <div class="form-group">
-                     <select type="text" class="form-control" placeholder="Category" name= "category">
-                       <option>--Select Category--</option>
-                       <option>Electricals</option>
-                       <option>Windshield</option>
-                       <option>Tyre</option>
-                       <option>Engine</option>
-                       <option>Seats</option>
-                       <option>Chassis</option>
-                     </select>
-                   </div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
-                   </div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Info" name="info">
-                   </div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Supplier" name="supplier">
-                   </div>
-                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
-                  </div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Quantity" name="quantity">
-                   </div>
-                   <div class="form-group">
-                     <select type="text" class="form-control" placeholder="Stage" name="stage">
-                       <option>--Select Stage--</option>
-                       <option>Untested</option>
-                       <option>Overdue</option>
-                       <option>Passed</option>
-                       <option>Unused</option>
-                       <option>Defect</option>
-                       <option>Returned</option>
-                     </select>
-                   </div>
-                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Status" name="status">
-                   </div>
-                 </div>
-             </div>
-             <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-primary">Save changes</button>
-              </form>
-             </div>
-           </div>
-         </div>
-       </div>
-       <!-- Modal End -->
-         <!-- Modal -->
-         <div class="modal fade" id="codetrain" tabindex="-1" role="dialog"
-           aria-labelledby="codetrain" aria-hidden="true">
-           <div class="modal-dialog modal-dialog-scrollable" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Allocation</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-           <form onsubmit="addPartallocation(event)">
-
-               <div class="modal-body">
-                 
-                   <div>
-                     <div class="form-group">
-                       <select type="text" class="form-control" placeholder="Destination Warehouse" name="destinationWarehouse">
-                         <option>--Select Destination Warehouse--</option>
-                         <option>Accra</option>
-                         <option>Tema</option>
-                       </select>
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Part Name" name="partName">
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Category" name="category">
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Driver's ID" name="driversId">
-                     </div>
-                     <div class="form-group">
-                       <input type="text" class="form-control" placeholder="Vehicle Number" name="vehicleNumber">
-                       
-                       </div>
+          <!-- Modal -->
+          <div class="modal fade" id="addPart" tabindex="-1" role="dialog" aria-labelledby="addPartTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="ModalTitle" id="addPartTitle">Part Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-              
-             </div>
-             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </form>
+                <form onsubmit="addPart(event)">
+
+                  <div class="modal-body">
+                    <div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Part number" name="partNumber">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Category" name="category">
+                          <option>--Select Category--</option>
+                          <option>Electricals</option>
+                          <option>Windshield</option>
+                          <option>Tyre</option>
+                          <option>Engine</option>
+                          <option>Seats</option>
+                          <option>Chassis</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Info" name="info">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Supplier" name="supplier">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Stage" name="stage">
+                          <option>--Select Stage--</option>
+                          <option>Untested</option>
+                          <option>Overdue</option>
+                          <option>Passed</option>
+                          <option>Unused</option>
+                          <option>Defect</option>
+                          <option>Returned</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Status" name="status">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
             </div>
-           </div>
-           </div>
-         </div>
-         <!-- Modal End -->
-         <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"><input type="checkbox"></th>
-                <th scope="col">Part No.</th>
-                <th scope="col">Category</th>
-                <th scope="col">Vehicle Model</th>
-                <th scope="col">info</th>
-                <th scope="col">Supplier</th>
-                <th scope="col">Unit Cost</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Arrival Date</th>
-                <th scope="col">Stage</th>
-                <th scope="col">Status</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="allparts">
-              
-            <tbody>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW5328</td>
-                <td>Chassis</td>
-                <td>VW Passat 2021</td>
-                <td>@</td>
-                <td>Danes & Co.</td>
-                <td>$280</td>
-                <td>20000</td>
-                <td>>25/11/2020</td>
-                <td><span>Overdue</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/trash-fill.svg" alt="">
-                  </a>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/pencil.svg" alt="">
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a></td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td> <a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a> <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Danes & Co.</td>
-                <td>$1072</td>
-                <td>26000</td>
-                <td>25/11/2020</td>
-                <td><span>Passed</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA7832</td>
-                <td>Windshield</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>VW Dresden</td>
-                <td>$740</td>
-                <td>30000</td>
-                <td>25/11/2020</td>
-                <td><span>Unused</span></td>
-                <td>Unpaid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA3402</td>
-                <td>Tyre</td>
-                <td>VWBeetle2019</td>
-                <td>@</td>
-                <td>Sellanium</td>
-                <td>$235</td>
-                <td>25000</td>
-                <td>25/11/2020</td>
-                <td><span>Defect</span></td>
-                <td>Unpaid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VB1774</td>
-                <td>Engine</td>
-                <td>VW Atlas 2021</td>
-                <td>@</td>
-                <td>Sellanium</td>
-                <td>$1440</td>
-                <td>16000</td>
-                <td>25/11/2020</td>
-                <td><span>Returned</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW4078</td>
-                <td>Windshield</td>
-                <td>VWJetta2021</td>
-                <td>@</td>
-                <td>VW Dresden</td>
-                <td>$620</td>
-                <td>20000</td>
-                <td>25/11/2020</td>
-                <td><span>Overdue</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VW2338</td>
-                <td>Gears</td>
-                <td>VW Golf 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$160</td>
-                <td>15000</td>
-                <td>25/11/2020</td>
-                <td><span>Untested</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VA3564</td>
-                <td>Engine</td>
-                <td>VW Passat2021</td>
-                <td>@</td>
-                <td>Sellanium</td>
-                <td>$1250</td>
-                <td>18000</td>
-                <td>25/11/2020</td>
-                <td><span>Used</span></td>
-                <td>Unpaid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>VB44871</td>
-                <td>Electricals</td>
-                <td>VW Artean 2021</td>
-                <td>@</td>
-                <td>Henrinch</td>
-                <td>$18</td>
-                <td>22000</td>
-                <td>25/11/2020</td>
-                <td><span>Defect</span></td>
-                <td>Paid</td>
-                <td><a href="" class="nav-spacing">
-                  <img src="/images/icons/trash-fill.svg" alt="">
-                </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>Totals </td>
-                <td>----</td>
-                <td>----</td>
-                <td>@</td>
-                <td>----</td>
-                <td>$160</td>
-                <td>192,000</td>
-                <td>----</td>
-                <td><span>Overdue 2</span></td>
-                <td>Unpaid 3</td>
-                <td>
-                  <a href="" class="nav-spacing">
-                    <img src="/images/icons/trash-fill.svg" alt="">
-                  </a>
-                <a href="" class="nav-spacing">
-                  <img src="/images/icons/pencil.svg" alt="">
-                </a>
-              </td>
-              </tr>  
-            </tbody>
-          </table>
+          </div>
         </div>
+        <!-- Modal End -->
 
-      </main>
+        <!-- Modal -->
+        <div class="modal fade" id="codetrain" tabindex="-1" role="dialog" aria-labelledby="codetrain"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Allocation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form onsubmit="addPartallocation(event)">
+
+                <div class="modal-body">
+
+                  <div>
+                    <div class="form-group">
+                      <select type="text" class="form-control" placeholder="Destination Warehouse"
+                        name="destinationWarehouse">
+                        <option>--Select Destination Warehouse--</option>
+                        <option>Accra</option>
+                        <option>Tema</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Part Name" name="partName">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Category" name="category">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Driver's ID" name="driversId">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Vehicle Number" name="vehicleNumber">
+
+                    </div>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+              </form>
+            </div>
+          </div>
+        </div>
     </div>
+    <!-- Modal End -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"><input type="checkbox"></th>
+          <th scope="col">Part No.</th>
+          <th scope="col">Category</th>
+          <th scope="col">Vehicle Model</th>
+          <th scope="col">info</th>
+          <th scope="col">Supplier</th>
+          <th scope="col">Unit Cost</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Arrival Date</th>
+          <th scope="col">Stage</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="allparts">
+
+      <tbody>
+        <tr>
+          <th scope="row"><input type="checkbox"></th>
+          <td>VW5328</td>
+          <td>Chassis</td>
+          <td>VW Passat 2021</td>
+          <td>@</td>
+          <td>Danes & Co.</td>
+          <td>$280</td>
+          <td>20000</td>
+          <td>>25/11/2020</td>
+          <td><span>Overdue</span></td>
+          <td>Paid</td>
+          <td><a href="" class="nav-spacing">
+              <img src="/images/icons/trash-fill.svg" alt="">
+            </a>
+            <a href="" class="nav-spacing" data-toggle="modal" data-target="#editPart">
+              <img src="/images/icons/pencil.svg" alt="">
+            </a>
+          </td>
+          <!-- Modal -->
+          <div class="modal fade" id="editPart" tabindex="-1" role="dialog" aria-labelledby="editPartTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="ModalTitle">Edit Part Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form onsubmit="editPart(event)">
+
+                  <div class="modal-body">
+                    <div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Part number" name="partNumber">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Category" name="category">
+                          <option>--Select Category--</option>
+                          <option>Electricals</option>
+                          <option>Windshield</option>
+                          <option>Tyre</option>
+                          <option>Engine</option>
+                          <option>Seats</option>
+                          <option>Chassis</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Info" name="info">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Supplier" name="supplier">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Unit Cost" name="unitCost">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+                      </div>
+                      <div class="form-group">
+                        <select type="text" class="form-control" placeholder="Stage" name="stage">
+                          <option>--Select Stage--</option>
+                          <option>Untested</option>
+                          <option>Overdue</option>
+                          <option>Passed</option>
+                          <option>Unused</option>
+                          <option>Defect</option>
+                          <option>Returned</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Status" name="status">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
+            </div>
+          </div>
+  </div>
+  <!-- Modal End -->
+  </tr>
+
+  </tbody>
+  </table>
+  </div>
+
+  </main>
+  </div>
   </div>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
   <script>
     $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+      $('[data-toggle="tooltip"]').tooltip()
+    })
   </script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-     <script
-     src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-     
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAj5Cv1PF1Rh_itaBGS07HTfXdyySoQMG8",
-    authDomain: "faze-tech.firebaseapp.com",
-    databaseURL: "https://faze-tech.firebaseio.com",
-    projectId: "faze-tech",
-    storageBucket: "faze-tech.appspot.com",
-    messagingSenderId: "93156263958",
-    appId: "1:93156263958:web:237b68023ef5c0244fcd37"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-    
-<script>
- var db = firebase.firestore();
- function addPart(event) {
-        event.preventDefault();
-        console.log('hello');
-        db.collection('parts')
-          .add({
-            partNumber: event.target.partNumber.value,
-            category: event.target.category.value,
-            vehicleModel: event.target.vehicleModel.value,
-            info: event.target.info.value,
-            supplier: event.target.supplier.value,
-            unitCost: event.target.unitCost.value,
-            quantity: event.target.quantity.value,
-            stage: event.target.stage.value,
-            status: event.target.status.value,
-            arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
-            
-          })
-          .then(function (docRef) {
-            console.log('Document written with ID: ', docRef.id);
-            window.location.href = window.location.href
-          })
-          .catch(function (error) {
-            console.error('Error adding document: ', error);
-          });
- }
- </script>
- <script>
-  var db = firebase.firestore();
-  function editPart(event) {
-         event.preventDefault();
-         console.log('hello');
-         db.collection('parts')
-           .update({
-             partNumber: event.target.partNumber.value,
-             category: event.target.category.value,
-             vehicleModel: event.target.vehicleModel.value,
-             info: event.target.info.value,
-             supplier: event.target.supplier.value,
-             unitCost: event.target.unitCost.value,
-             quantity: event.target.quantity.value,
-             stage: event.target.stage.value,
-             status: event.target.status.value,
-             arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
-             
-           })
-           .then(function (docRef) {
-             console.log('Document written with ID: ', docRef.id);
-             window.location.href = window.location.href
-           })
-           .catch(function (error) {
-             console.error('Error adding document: ', error);
-           });
-  }
- </script>
- <script>
-  var db = firebase.firestore();
-  function addPartallocation(event) {
-         event.preventDefault();
-         console.log('hello');
-         db.collection('allocation')
-           .add({
-            destinationWarehouse: event.target.destinationWarehouse.value,
-             partName: event.target.partName.value,
-             category: event.target.category.value,
-             driversId: event.target.driversId.value,
-             vehicleNumber: event.target.vehicleNumber.value,
-           })
-           .then(function (docRef) {
-             console.log('Document written with ID: ', docRef.id);
-           })
-           .catch(function (error) {
-             console.error('Error adding document: ', error);
-           });
-  }
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
-  function getAllParts() {
-            var allPartsTable = document.getElementById('allparts');
-            db.collection("parts").onSnapshot((querySnapshot) => {
-                allPartsTable.innerHTML = '';
-                querySnapshot.forEach((doc) => {
-                    // console.log(`${doc.id} => ${doc.data().projectName}`);
-                    let data = doc.data();
-                    console.log(data);
-                    let newRow = `
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAj5Cv1PF1Rh_itaBGS07HTfXdyySoQMG8",
+      authDomain: "faze-tech.firebaseapp.com",
+      databaseURL: "https://faze-tech.firebaseio.com",
+      projectId: "faze-tech",
+      storageBucket: "faze-tech.appspot.com",
+      messagingSenderId: "93156263958",
+      appId: "1:93156263958:web:237b68023ef5c0244fcd37"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+    var db = firebase.firestore();
+    function addPart(event) {
+      event.preventDefault();
+      console.log('hello');
+      db.collection('parts')
+        .add({
+          partNumber: event.target.partNumber.value,
+          category: event.target.category.value,
+          vehicleModel: event.target.vehicleModel.value,
+          info: event.target.info.value,
+          supplier: event.target.supplier.value,
+          unitCost: event.target.unitCost.value,
+          quantity: event.target.quantity.value,
+          stage: event.target.stage.value,
+          status: event.target.status.value,
+          arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
+
+        })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id);
+          window.location.href = window.location.href
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+    }
+  </script>
+  <script>
+    var db = firebase.firestore();
+    function editPart(event) {
+      event.preventDefault();
+      console.log('hello');
+      db.collection('parts')
+        .update({
+          partNumber: event.target.partNumber.value,
+          category: event.target.category.value,
+          vehicleModel: event.target.vehicleModel.value,
+          info: event.target.info.value,
+          supplier: event.target.supplier.value,
+          unitCost: event.target.unitCost.value,
+          quantity: event.target.quantity.value,
+          stage: event.target.stage.value,
+          status: event.target.status.value,
+          arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
+
+        })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id);
+          window.location.href = window.location.href
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+    }
+  </script>
+  <script>
+    var db = firebase.firestore();
+    function addPartallocation(event) {
+      event.preventDefault();
+      console.log('hello');
+      db.collection('allocation')
+        .add({
+          destinationWarehouse: event.target.destinationWarehouse.value,
+          partName: event.target.partName.value,
+          category: event.target.category.value,
+          driversId: event.target.driversId.value,
+          vehicleNumber: event.target.vehicleNumber.value,
+        })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+    }
+
+    function getAllParts() {
+      var allPartsTable = document.getElementById('allparts');
+      db.collection("parts").onSnapshot((querySnapshot) => {
+        allPartsTable.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+          // console.log(`${doc.id} => ${doc.data().projectName}`);
+          let data = doc.data();
+          console.log(data);
+          let newRow = `
                     <tr>
                         <th scope="row"><input type="checkbox"></th>
                         <td>${data.partNumber}</td>
@@ -950,27 +495,27 @@
                       </td>
                   </tr>
                     `
-                    allPartsTable.innerHTML = allPartsTable.innerHTML + newRow
-                });
-            });
-   }
+          allPartsTable.innerHTML = allPartsTable.innerHTML + newRow
+        });
+      });
+    }
 
     function deletePart(id) {
-            db.collection("parts").doc(id).delete().then(function () {
-                console.log("Document successfully deleted!");
-                // window.location.href  =  window.location.href 
-            }).catch(function (error) {
-                console.error("Error removing document: ", error);
-            });
-        }
+      db.collection("parts").doc(id).delete().then(function () {
+        console.log("Document successfully deleted!");
+        // window.location.href  =  window.location.href 
+      }).catch(function (error) {
+        console.error("Error removing document: ", error);
+      });
+    }
 
-        function getFormattedDate(date) {
-            let year = date.getFullYear();
-            let month = (1 + date.getMonth()).toString().padStart(2, '0');
-            let day = date.getDate().toString().padStart(2, '0');
-            return month + '/' + day + '/' + year + ', ' + date.toLocaleTimeString();
-        }
-   getAllParts()
+    function getFormattedDate(date) {
+      let year = date.getFullYear();
+      let month = (1 + date.getMonth()).toString().padStart(2, '0');
+      let day = date.getDate().toString().padStart(2, '0');
+      return month + '/' + day + '/' + year + ', ' + date.toLocaleTimeString();
+    }
+    getAllParts()
   </script>
 </body>
 
