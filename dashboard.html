@@ -79,6 +79,14 @@
 
           </ul>
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">
+                <span data-feather="file-text"></span>
+                Logout
+              </a>
+            </li>
+          </ul>
         </div>
       </nav>
 
@@ -103,8 +111,8 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav ml-auto">
-              <span class="navbar-text">
-                November 30th, 2020
+              <span class="navbar-text" id="today-date">
+                
               </span>
               <li class="nav-item">
                 <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
@@ -449,6 +457,9 @@
       return month + '/' + day + '/' + year + ', ' + date.toLocaleTimeString();
     }
     getAllParts()
+      let today = new Date()
+      console.log(today);
+      $("#today-date").html(today)
   </script>
 </body>
 
