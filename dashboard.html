@@ -104,7 +104,7 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">
               <span data-feather="file-text"></span>
-              © 2020 All Rights Reserved!
+              © 2020 All Rights Reserved
             </a>
           </li>
         </ul>
@@ -172,6 +172,7 @@
                       <div class="form-group">
                         <select type="text" class="form-control" placeholder="Category" name="category">
                           <option>--Select Category--</option>
+                          <option>Gears</option>
                           <option>Electricals</option>
                           <option>Windshield</option>
                           <option>Tyre</option>
@@ -294,6 +295,7 @@
           quantity: event.target.quantity.value,
           stage: event.target.stage.value,
           status: event.target.status.value,
+          isDeleted:false,
           arrivalDate: firebase.firestore.FieldValue.serverTimestamp()
 
         })
@@ -359,7 +361,7 @@
 
     function getAllParts() {
       var allPartsTable = document.getElementById('allparts');
-      db.collection("parts").onSnapshot((querySnapshot) => {
+      db.collection("parts").where('isDeleted','==',false).onSnapshot((querySnapshot) => {
         allPartsTable.innerHTML = '';
         let num = 1;
         querySnapshot.forEach((doc) => {
@@ -499,7 +501,7 @@
     }
 
     function deletePart(id) {
-      db.collection("parts").doc(id).delete().then(function () {
+      db.collection("parts").doc(id).update({isDeleted:true}).then(function () {
         console.log("Document successfully deleted!");
         window.location.href  =  window.location.href 
       }).catch(function (error) {
