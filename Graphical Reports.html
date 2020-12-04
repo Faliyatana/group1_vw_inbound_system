@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/Chart.css">
-  <title>Allocation - Volkswagen Web Application</title>
+  <title>Analytics - Volkswagen Web Application</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <div class="row">
       <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-top">
         <div class="sidebar-title">
-          <p>Allocation View</p>
+          <p>Analytics</p>
         </div>
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
@@ -30,7 +30,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="analytics.html">
+              <a class="nav-link" href="Graphical Reports.html">
                 <span data-feather="file"></span>
                 Analytics
               </a>
@@ -72,6 +72,18 @@
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
+              <a class="nav-link active" href="deletedParts.html">
+                <span data-feather="file-text"></span>
+                Deleted Record
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="auditLog.html">
+                <span data-feather="file-text"></span>
+                Activity Log
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" href="#">
                 <span data-feather="file-text"></span>
                 Settings
@@ -83,7 +95,6 @@
                 Knowledge Base
               </a>
             </li>
-
           </ul>
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
@@ -151,10 +162,18 @@
         <div>
             <div class="row">
                 <div class="col-md-6">
-                    <canvas id="myPie"></canvas>
+                    <br>
+                    <h4>Quantity of Parts</h4>
+                    <div class="overview-item">
+                        <canvas id="myPie"></canvas>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <canvas id="myGraph"></canvas>
+                    <br>
+                    <h4>Cost of Parts</h4>
+                    <div class="overview-item">
+                        <canvas id="myGraph"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

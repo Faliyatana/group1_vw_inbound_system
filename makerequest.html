@@ -22,7 +22,7 @@
         <div class="request-form-container">
           <h4 class="text-center">Make a request</h4>
           <br>
-          <form>
+          <form onsubmit="addRequest(event)">
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -40,7 +40,7 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="vehicleNumber">Vehicle Number</label>
+                  <label for="vehicleNumber">Vehicle Model</label>
                   <input type="text" class="form-control" name="vehicleNumber" aria-describedby="emailHelp" required>
                 </div>
               </div>
@@ -48,6 +48,20 @@
                 <div class="form-group">
                   <label for="quantity">Quantity</label>
                   <input type="number" class="form-control" name="quantity" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="vehicleNumber">Pickup Date</label>
+                  <input type="date" class="form-control" name="pickupDate" aria-describedby="emailHelp" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="quantity">Contact Number</label>
+                  <input type="number" class="form-control" name="phone" required>
                 </div>
               </div>
             </div>
@@ -61,7 +75,53 @@
       </div>
     </div>
   </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAj5Cv1PF1Rh_itaBGS07HTfXdyySoQMG8",
+    authDomain: "faze-tech.firebaseapp.com",
+    databaseURL: "https://faze-tech.firebaseio.com",
+    projectId: "faze-tech",
+    storageBucket: "faze-tech.appspot.com",
+    messagingSenderId: "93156263958",
+    appId: "1:93156263958:web:237b68023ef5c0244fcd37"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+  var db = firebase.firestore();
+  function addRequest(event) {
+    event.preventDefault();
+    db.collection('requests')
+      .add({
+        partName: event.target.partName.value,
+        batchNumber: event.target.batchNumber.value,
+        vehicleNumber: event.target.vehicleNumber.value,
+        info: event.target.partInfo.value,
+        quantity: event.target.quantity.value,
+        pickupDate: event.target.pickupDate.value,
+        phone: event.target.phone.value,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+
+      })
+      .then(function (docRef) {
+        console.log('Document written with ID: ', docRef.id);
+        window.location.href = 'makerequest-success.html'
+      })
+      .catch(function (error) {
+        console.error('Error adding document: ', error);
+      });
+  }
+</script>
 </body>
 
 </html>

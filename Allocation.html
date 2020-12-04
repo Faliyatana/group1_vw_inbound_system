@@ -29,7 +29,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="analytics.html">
+              <a class="nav-link" href="Graphical Reports.html">
                 <span data-feather="file"></span>
                 Analytics
               </a>
@@ -71,6 +71,18 @@
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
+              <a class="nav-link active" href="deletedParts.html">
+                <span data-feather="file-text"></span>
+                Deleted Record
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="auditLog.html">
+                <span data-feather="file-text"></span>
+                Activity Log
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" href="#">
                 <span data-feather="file-text"></span>
                 Settings
@@ -82,7 +94,6 @@
                 Knowledge Base
               </a>
             </li>
-
           </ul>
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
@@ -194,7 +205,7 @@
 
             <ul class="navbar-nav ml-auto">
               <span class="navbar-text " id="today-date">
-                Date inserted dynamically
+                
               </span>
               <li class="nav-item">
                 <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
@@ -325,9 +336,6 @@
   </script>
 
   <script>
-      
-    
-    getAllParts()
       let today = new Date()
       console.log(today);
       $("#today-date").html(today)

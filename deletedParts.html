@@ -65,7 +65,7 @@
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link active" href="deletedParts.html">
+              <a class="nav-link active" href="#">
                 <span data-feather="file-text"></span>
                 Deleted Record
               </a>
@@ -88,6 +88,7 @@
                 Knowledge Base
               </a>
             </li>
+
           </ul>
           <div class="sidebar-title" style="border-color: #5fbff9;"></div>
           <ul class="nav flex-column mb-2">
@@ -123,7 +124,6 @@
             </div>
           </form>
           &nbsp;&nbsp;
-          <button class="btn btn-dark" data-toggle="modal" data-target="#addPart">Add part</button>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -361,14 +361,14 @@
       var allPartsTable = document.getElementById('allparts');
       db.collection("parts").onSnapshot((querySnapshot) => {
         allPartsTable.innerHTML = '';
-        let num = 1;
+        let num = 0;
         querySnapshot.forEach((doc) => {
           // console.log(`${doc.id} => ${doc.data().projectName}`);
           let data = doc.data();
           console.log(data);
           let newRow = `
                     <tr>
-                        <th scope="row">${num}</th>
+                        <th scope="row"><input type="checkbox"></th>
                         <td>${data.partNumber}</td>
                         <td>${data.category}</td>
                         <td>${data.batchNumber}</td>
@@ -390,7 +390,7 @@
                           <img src="images/icons/house-door-fill.svg" alt="">
                         </a>
                         <!-- Delete confirmation Modal -->
-                          <div class="modal fade" id="deletePart${num}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="deletePart${num++}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -501,7 +501,7 @@
     function deletePart(id) {
       db.collection("parts").doc(id).delete().then(function () {
         console.log("Document successfully deleted!");
-        window.location.href  =  window.location.href 
+        // window.location.href  =  window.location.href 
       }).catch(function (error) {
         console.error("Error removing document: ", error);
       });

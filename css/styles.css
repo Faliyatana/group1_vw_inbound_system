@@ -67,6 +67,7 @@ html, body {
 }
 body{
     background-color: #e7eaf0;
+    /* zoom: 85%; */
 }
 
  /*.navbar{
@@ -99,4 +100,17 @@ body{
     border: 1px solid #0c1e5044;
     border-radius: 5px;
     padding: 2rem;
+}
+
+.overview-item {
+    background-color: white;
+    min-height: 10rem;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 10px;
+}
+
+.stat h1 {
+    color: palevioletred;
+    font-size: 2.5rem;
 }
