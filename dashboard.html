@@ -112,7 +112,7 @@
 
             <ul class="navbar-nav ml-auto">
               <span class="navbar-text" id="today-date">
-                
+
               </span>
               <li class="nav-item">
                 <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
@@ -160,6 +160,9 @@
                         </select>
                       </div>
                       <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Batch Number" name="batchNumber">
+                      </div>
+                      <div class="form-group">
                         <input type="text" class="form-control" placeholder="Vehicle Model" name="vehicleModel">
                       </div>
                       <div class="form-group">
@@ -204,6 +207,7 @@
               <th scope="col"><input type="checkbox"></th>
               <th scope="col">Part No.</th>
               <th scope="col">Category</th>
+              <th scope="col">Batch No.</th>
               <th scope="col">Vehicle Model</th>
               <th scope="col">info</th>
               <th scope="col">Supplier</th>
@@ -261,6 +265,7 @@
         .add({
           partNumber: event.target.partNumber.value,
           category: event.target.category.value,
+          batchNumber: event.target.batchNumber.value,
           vehicleModel: event.target.vehicleModel.value,
           info: event.target.info.value,
           supplier: event.target.supplier.value,
@@ -283,13 +288,14 @@
   <script>
     var db = firebase.firestore();
 
-    function editPart(event,id) {
+    function editPart(event, id) {
       event.preventDefault();
       console.log('hello');
       db.collection('parts').doc(id)
         .update({
           partNumber: event.target.partNumber.value,
           category: event.target.category.value,
+          batchNumber: event.target.batchNumber.value,
           vehicleModel: event.target.vehicleModel.value,
           info: event.target.info.value,
           supplier: event.target.supplier.value,
@@ -344,6 +350,7 @@
                         <th scope="row"><input type="checkbox"></th>
                         <td>${data.partNumber}</td>
                         <td>${data.category}</td>
+                        <td>${data.batchNumber}</td>
                         <td>${data.vehicleModel}</td>
                         <td><img src="images/icons/info-circle.svg" alt="" data-toggle="tooltip" data-placement="top" title="${data.info}"></td>
                         <td>${data.supplier}</td>
@@ -352,7 +359,7 @@
                         <td>${getFormattedDate(data.arrivalDate.toDate())}</td>
                         <td><span>${data.stage}</span></td>
                         <td>${data.status}</td>
-                        <td><a onclick="deletePart('${doc.id}')" class="nav-spacing">
+                        <td><a class="nav-spacing" data-toggle="modal" data-target="#deletePart${num}">
                           <img src="images/icons/trash-fill.svg" alt="">
                         </a>
                         <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
@@ -361,7 +368,33 @@
                         <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
                           <img src="images/icons/house-door-fill.svg" alt="">
                         </a>
+                        <!-- Delete confirmation Modal -->
+                          <div class="modal fade" id="deletePart${num++}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body" style="color: white">
+                                  <p>Are you sure you want to delete this item?</p>
 
+                                  <form class="form">
+                                    <div class="form-group">
+                                      <textarea class="form-control" name="reason" rows="2" placeholder="Please state why you want to delete this item"></textarea>
+                                    </div>
+                                  </form>
+                                  <br/>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button onclick="deletePart('${doc.id}')" type="button" class="btn btn-danger">Yes, delete</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         <div class="modal fade" id="editPart${num++}" tabindex="-1" role="dialog" aria-labelledby="addPartTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -390,6 +423,9 @@
                           <option>Seats</option>
                           <option>Chassis</option>
                         </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" value="${data.batchNumber}" placeholder="Batch Number" name="batchNumber">
                       </div>
                       <div class="form-group">
                         <input type="text" class="form-control" value="${data.vehicleModel}" placeholder="Vehicle Model" name="vehicleModel">
@@ -422,7 +458,7 @@
                         <input type="text" class="form-control" value="${data.status}" placeholder="Status" name="status">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" value="${data.location?data.location:''}" placeholder="Location" name="location">
+                        <input type="text" class="form-control" value="${data.location ? data.location : ''}" placeholder="Location" name="location">
                       </div>
                     </div>
                   </div>
@@ -457,9 +493,9 @@
       return month + '/' + day + '/' + year + ', ' + date.toLocaleTimeString();
     }
     getAllParts()
-      let today = new Date()
-      console.log(today);
-      $("#today-date").html(today)
+    let today = new Date()
+    console.log(today);
+    $("#today-date").html(today)
   </script>
 </body>
 

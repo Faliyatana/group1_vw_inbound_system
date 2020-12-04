@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Make a arequest - Volkswagen Web Application</title>
+</head>
+
+<body>
+
+  <div class="container make-request">
+    <div class="row">
+      <div class="col-6 offset-md-3">
+        <p class="text-center">
+          <img src="./images/logo.png" alt="" height="80">
+        </p>
+        <div class="request-form-container">
+          <h4 class="text-center">Make a request</h4>
+          <br>
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="partName">Part Name</label>
+                  <input type="text" class="form-control" name="partName" aria-describedby="emailHelp" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="batchNumber">Batch Number</label>
+                  <input type="text" class="form-control" name="batchNumber" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="vehicleNumber">Vehicle Number</label>
+                  <input type="text" class="form-control" name="vehicleNumber" aria-describedby="emailHelp" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" name="quantity" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="partInfo">Information about part requested</label>
+              <input type="text" class="form-control" name="partInfo" required>
+            </div>
+            <button type="submit" class="btn btn-dark rounded-pill">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

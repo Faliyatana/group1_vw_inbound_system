@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Allocation - Volkswagen Web Application</title>
+  <title>Audit Log - Volkswagen Web Application</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <div class="row">
       <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-top">
         <div class="sidebar-title">
-          <p>Allocation View</p>
+          <p>Audit Log View</p>
         </div>
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
@@ -35,12 +35,6 @@
               </a>
             </li>
             <h6 class="text-warning">LOGISTICS</h6>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#addPartAllocation">
-                <span data-feather="shopping-cart"></span>
-                Add Part Allocation
-              </a>
-            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="dashboard.html">
                 <span data-feather="users"></span>
@@ -114,71 +108,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Modal -->
-        <div class="modal fade" id="addPartAllocation" tabindex="-1" role="dialog" aria-labelledby="addPartAllocation"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="ModalTitle" id="exampleModalScrollableTitle">Part Allocation</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form onsubmit="addPartallocation(event)">
-
-              <div class="modal-body">
-
-                <div>
-                  <div class="form-group">
-                    <label for="" class="text-light">Destination</label>
-                    <select type="text" class="form-control" placeholder="Destination Warehouse"
-                      name="destinationWarehouse">
-                      <option>--Select Destination Warehouse--</option>
-                      <option>Accra</option>
-                      <option>Tema</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="text-light">Part No.</label>
-                    <input type="text" class="form-control" placeholder="Part Name" name="partName">
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="text-light">Category</label>
-                    <input type="text" class="form-control" placeholder="Category" name="category">
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="text-light">Quantity</label>
-                    <input type="text" class="form-control" placeholder="Quantity" name="quantity">
-                  <div class="form-group">
-                    <label for="" class="text-light">Unit Cost</label>
-                    <input type="text" class="form-control" placeholder="Unit Cos" name="unitCost">
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="text-light">Drivers ID</label>
-                    <input type="text" class="form-control" placeholder="Driver's ID" name="driversId">
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="text-light">vehicle Number</label>
-                    <input type="text" class="form-control" placeholder="Vehicle Number" name="vehicleNumber">
-                  <div class="form-group">
-                      <label for="" class="text-light">Actions</label>
-                      <input type="text" class="form-control" placeholder="Actions" name="Actions">
-  
-
-                  </div>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </form>
-          </div>
-        </div>
-      </div>
-  </div>
-  <!-- Modal End -->
+         
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -202,42 +132,34 @@
         </nav>
 
         <div class="main-content">
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Modal End -->
           <table class="table table-striped">
-            <thead>
-                <th scope="col"><input type="checkbox"></th>
-                <th scope="col">Part No.</th>
-                <th scope="col">Category</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Unit Cost</th>
-                <th scope="col">Destination Warehouse</th>
-                <th scope="col">Drivers ID</th>
-                <th scope="col">Vehicle Number</th>
+            <thead style="background-color: #0c1e5083;">
+                <th scope="col">#</th>
+                <th scope="col">Name of Input</th>
+                <th scope="col">Original Location</th>
+                <th scope="col">Date Deleted</th>
+                <th scope="col">User name</th>
+                <th scope="col">Reason</th>
                 <th scope="col">Actions</th>
             </thead>
             <tbody id='allocatedParts'>
-              
+              <tr>
+                <td>1</td>
+                <td>lkjg343-34</td>
+                <td>Doors</td>
+                <td>232</td>
+                <td>$4565464</td>
+                <td>Tema</td>
+                <td>
+                  <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                    <img src="images/icons/trash-fill.svg" alt="">
+                  </a>
+
+                  <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
+                    <img src="images/icons/pencil.svg" alt="">
+                  </a>
+                </td>
+          </tr>
             </tbody>
           </table>
         </div>
@@ -291,8 +213,6 @@
                         <td>${data.quantity}</td>
                         <td>${data.unitCost}</td>
                         <td>${data.location}</td>
-                        <td>001</td>
-                        <td>G221</td>
                         <td>
                           <a data-toggle="modal" data-target="#editPart${num}" class="nav-spacing">
                             <img src="images/icons/trash-fill.svg" alt="">
@@ -308,7 +228,7 @@
                 });
             });
         }
-        getAllocatedParts();
+        // getAllocatedParts();
   </script>
 </body>
 

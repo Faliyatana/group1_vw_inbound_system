@@ -89,3 +89,14 @@ body{
 .form-control{
     border-radius: 30px;
 }
+
+.make-request {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+}
+
+.request-form-container {
+    border: 1px solid #0c1e5044;
+    border-radius: 5px;
+    padding: 2rem;
+}
