@@ -8,7 +8,7 @@ html, body {
 }
 
 .custom-bg-color {
-    background-color: #F6F6F6 !important;
+    background-color: #387794 !important;
 }
 
 .hero-section {
@@ -35,7 +35,7 @@ html, body {
 .icon-bar{
     height: 30px;
     width: 1px;
-    background-color: #8f8f8f;
+    background-color: #a39292;
 }
 
 .sidebar{
@@ -66,21 +66,21 @@ html, body {
     margin-right: 5px;
 }
 body{
-    background-color: #f5f6f8;
+    background-color: #e7eaf0;
 }
 
-/* .navbar{
+ /*.navbar{
     background-color: white !important;
     margin-top: 20px;
 } */
 
 .main-content{
     margin-top: 20px;
-    background-color: white;
-    border-radius: 10px;
+    background-color: rgb(201, 206, 233);
+    border-radius: 12px;
 }
 .modal-content{
-    background-color:  #0c1e50;
+    background-color:  #0d2a79;
     border-radius: 30px;
 }
 .modal-header{
